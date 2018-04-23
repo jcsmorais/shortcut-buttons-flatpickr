@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "outDir": "./dist/types",
+        "removeComments": true
+    },
+    "extends": "./tsconfig.json",
+    "include": [
+        "./src/index.ts"
+    ]
+}
