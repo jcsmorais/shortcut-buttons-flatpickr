@@ -1,0 +1,27 @@
+{
+  "name": "shortcut-buttons-flatpickr",
+  "description": "Shortcut buttons is a plugin for flatpickr that provides users an alternative way to interact with the datetime picker.",
+  "version": "0.0.1",
+  "main": "dist/shortcut-buttons-flatpickr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcsmorais/shortcut-buttons-flatpickr.git"
+  },
+  "keywords": [
+    "shortcut",
+    "buttons",
+    "flatpickr",
+    "plugin",
+    "calendar",
+    "javascript"
+  ],
+  "author": "João Morais",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jcsmorais/shortcut-buttons-flatpickr/issues"
+  },
+  "homepage": "https://github.com/jcsmorais/shortcut-buttons-flatpickr#readme"
+}
