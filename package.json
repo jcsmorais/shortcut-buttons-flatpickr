@@ -4,6 +4,13 @@
   "version": "0.0.1",
   "main": "dist/shortcut-buttons-flatpickr.js",
   "scripts": {
+    "build": "run-s build:pre build:dev build:prod",
+    "build:pre": "rm -rf dist && mkdir dist",
+    "build:dev": "run-s build:ts:dev",
+    "build:prod": "run-s build:ts:prod",
+    "build:ts:dev": "webpack --config build/webpack.config.ts --mode development",
+    "build:ts:prod": "webpack --config build/webpack.config.ts --mode production",
+    "prepublishOnly": "run-s build test",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -34,7 +41,8 @@
     "tslint-loader": "^3.6.0",
     "typescript": "^2.8.3",
     "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15"
+    "webpack-cli": "^2.0.15",
+    "yarn-run-all": "^3.1.1"
   },
   "dependencies": {}
 }
