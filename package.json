@@ -11,7 +11,8 @@
     "build:ts:dev": "webpack --config build/webpack.config.ts --mode development",
     "build:ts:prod": "webpack --config build/webpack.config.ts --mode production",
     "prepublishOnly": "run-s build test",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:ts": "webpack --config build/webpack.config.ts --mode development --watch"
   },
   "repository": {
     "type": "git",
