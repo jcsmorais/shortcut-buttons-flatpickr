@@ -12,6 +12,7 @@
     "build:ts:prod": "webpack --config build/webpack.config.ts --mode production",
     "prepublishOnly": "run-s build test",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "watch:ts": "webpack --config build/webpack.config.ts --mode development --watch"
   },
   "repository": {
