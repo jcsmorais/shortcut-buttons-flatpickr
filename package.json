@@ -15,7 +15,8 @@
     "prepublishOnly": "run-s build test",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "watch:ts": "webpack --config build/webpack.config.ts --mode development --watch"
+    "watch:ts": "webpack --config build/webpack.config.ts --mode development --watch",
+    "watch:themes": "webpack --config build/webpack.themes.ts --mode development --watch"
   },
   "repository": {
     "type": "git",
