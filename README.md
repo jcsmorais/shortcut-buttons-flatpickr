@@ -6,12 +6,12 @@
 
 Shortcut buttons is a plugin for [flatpickr](https://flatpickr.js.org/) that provides users an alternative way to interact with the datetime picker.
 
-![material_blue](https://user-images.githubusercontent.com/712667/39289398-cfd1e7cc-48e0-11e8-94c4-5413418cbccc.png)
-![material_green](https://user-images.githubusercontent.com/712667/39289397-cfba8ca8-48e0-11e8-8955-992b0cb62328.png)
-![confetti](https://user-images.githubusercontent.com/712667/39289399-cfe7eaf4-48e0-11e8-8f40-263f216a1c49.png)
-![material_red](https://user-images.githubusercontent.com/712667/39289395-cfa54866-48e0-11e8-9e5a-15e00af437ba.png)
-![light](https://user-images.githubusercontent.com/712667/39289394-cf8b1806-48e0-11e8-9024-ad9c5414adb3.png)
-![dark](https://user-images.githubusercontent.com/712667/39289400-cfff315a-48e0-11e8-9edb-c6c2aa4e749c.png)
+![material_blue](https://user-images.githubusercontent.com/712667/39291812-091dd72c-48e9-11e8-9d3f-1eefd57be20a.png)
+![material_green](https://user-images.githubusercontent.com/712667/39291811-090776bc-48e9-11e8-9a79-deed7306be37.png)
+![confetti](https://user-images.githubusercontent.com/712667/39291814-0938bbc8-48e9-11e8-81b1-14a05f6fcd99.png)
+![material_red](https://user-images.githubusercontent.com/712667/39291810-08ee5042-48e9-11e8-8f82-25eb76ce1068.png)
+![light](https://user-images.githubusercontent.com/712667/39291809-08ba48d8-48e9-11e8-942d-33f68742f94f.png)
+![dark](https://user-images.githubusercontent.com/712667/39291815-094fdbbe-48e9-11e8-9d54-f822d299317c.png)
 
 # Motivation
 Shortcut buttons development has been motivated by the need of having a fast, flexible and seemless alternative way for users to select specific date(s) without being forced to navigate through their calendars and individually select those date(s).
