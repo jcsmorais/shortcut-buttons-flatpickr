@@ -27,3 +27,8 @@ Installing on non-module environments:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shortcut-buttons-flatpickr@0.1.0/dist/themes/light.min.css">
 <script src="https://cdn.jsdelivr.net/npm/shortcut-buttons-flatpickr@0.1.0/dist/shortcut-buttons-flatpickr.min.js"></script>
 ```
+
+# Usage Examples
+* [Beginning Of Time](http://bit.ly/2jjcQK0)
+* [US Holidays Navigator](http://bit.ly/2raWK9D)
+* [Yesterday, Today and Tomorrow](http://bit.ly/2KrWMC0)
