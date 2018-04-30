@@ -15,3 +15,15 @@ Shortcut buttons is a plugin for [flatpickr](https://flatpickr.js.org/) that pro
 
 # Motivation
 Shortcut buttons development has been motivated by the need of having a fast, flexible and seemless alternative way for users to select specific date(s) without being forced to navigate through their calendars and individually select those date(s).
+
+# Installation
+Installing as a module:
+```bash
+yarn add shortcut-buttons-flatpickr
+```
+
+Installing on non-module environments:
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shortcut-buttons-flatpickr@0.1.0/dist/themes/light.min.css">
+<script src="https://cdn.jsdelivr.net/npm/shortcut-buttons-flatpickr@0.1.0/dist/shortcut-buttons-flatpickr.min.js"></script>
+```
