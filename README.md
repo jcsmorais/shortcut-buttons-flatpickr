@@ -29,6 +29,15 @@ Installing on non-module environments:
 <script src="https://cdn.jsdelivr.net/npm/shortcut-buttons-flatpickr@0.1.0/dist/shortcut-buttons-flatpickr.min.js"></script>
 ```
 
+# API
+| Params         | Type                     | Description                                                                                                                                                                      |
+|----------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `button`       | `Object`, `Object[]`     | Button(s).                                                                                                                                                                       |
+| `button.label` | `string`                 | Button's label.                                                                                                                                                                  |
+| `[label]`      | `string`                 | Label including a word/sentence stating that the user can use the calendar or one of the buttons.                                                                                |
+| `onClick`      | `Function`, `Function[]` | Callback(s) invoked when plugin's buttons are clicked. Each callback is fed with two parameters:<br/>`index` - the index of the clicked button.<br/>`fp` - flatpickr's instance. |
+| `[theme]`      | `string`                 | Flatpickr's theme, defaults to `light` if none supplied.                                                                                                                         |
+
 # Usage Examples
 * [Beginning Of Time](http://bit.ly/2jjcQK0)
 * [US Holidays Navigator](http://bit.ly/2raWK9D)
