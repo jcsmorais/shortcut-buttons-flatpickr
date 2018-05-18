@@ -1,4 +1,6 @@
 # Shortcut buttons
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jcsmorais/shortcut-buttons-flatpickr.svg)](https://greenkeeper.io/)
 [![CircleCI](https://circleci.com/gh/jcsmorais/shortcut-buttons-flatpickr/tree/master.svg?style=shield)](https://circleci.com/gh/jcsmorais/shortcut-buttons-flatpickr/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/jcsmorais/shortcut-buttons-flatpickr/badge.svg?branch=master)](https://coveralls.io/github/jcsmorais/shortcut-buttons-flatpickr?branch=master)
 [![npm version](https://badge.fury.io/js/shortcut-buttons-flatpickr.svg)](https://badge.fury.io/js/shortcut-buttons-flatpickr)
