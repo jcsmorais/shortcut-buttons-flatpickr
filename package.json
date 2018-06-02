@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/jcsmorais/shortcut-buttons-flatpickr#readme",
   "devDependencies": {
-    "@types/jest": "22.x",
+    "@types/jest": "^23.0.0",
     "@types/node": "10.x",
     "@types/stylus": "0.x",
     "@types/webpack": "4.x",
