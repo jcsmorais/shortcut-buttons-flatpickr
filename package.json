@@ -54,7 +54,7 @@
     "stylus-loader": "3.x",
     "ts-jest": "22.x",
     "ts-loader": "4.x",
-    "ts-node": "6.x",
+    "ts-node": "^7.0.0",
     "tslint": "5.x",
     "tslint-loader": "3.x",
     "typescript": "2.x",
