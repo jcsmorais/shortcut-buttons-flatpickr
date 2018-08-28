@@ -40,6 +40,7 @@ Installing on non-module environments:
 
 # Usage Examples
 * [Beginning Of Time](http://bit.ly/2jjcQK0)
+* [Clear Date Selection](http://bit.ly/2wrPyYp)
 * [Quick Month Selection](http://bit.ly/2KdleFS)
 * [US Holidays Navigator](http://bit.ly/2raWK9D)
 * [Yesterday, Today and Tomorrow](http://bit.ly/2KrWMC0)
