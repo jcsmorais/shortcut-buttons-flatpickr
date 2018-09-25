@@ -87,6 +87,21 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
             }
         }
 
+        /**
+         * Handles key down events on plugin's button.
+         */
+        function onKeyDown(event: KeyboardEvent) {
+            const target = event.target as HTMLButtonElement;
+            if (event.key !== 'Tab' || target.tagName.toLowerCase() !== 'button') {
+                return;
+            }
+
+            if ((event.shiftKey && !target.previousSibling) || (!event.shiftKey && !target.nextSibling)) {
+                event.preventDefault();
+                fp.element.focus();
+            }
+        }
+
         return {
             /**
              * Initialize plugin.
@@ -120,12 +135,14 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
                 fp.calendarContainer.appendChild(wrapper);
 
                 wrapper.addEventListener('click', onClick);
+                wrapper.addEventListener('keydown', onKeyDown);
             },
 
             /**
              * Clean up before flatpickr is destroyed.
              */
             onDestroy: () => {
+                wrapper.removeEventListener('keydown', onKeyDown);
                 wrapper.removeEventListener('click', onClick);
                 wrapper = undefined;
             },
