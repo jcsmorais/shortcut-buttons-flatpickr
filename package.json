@@ -18,9 +18,11 @@
     "stop:selenium": "pkill -f selenium",
     "start:server": "forever start -m 1 -c ts-node tests/server.ts",
     "stop:server": "forever stopall",
-    "test": "run-s test:unit",
+    "test": "run-s test:unit test:functional",
     "test:unit": "mocha -r jsdom-global/register -r ts-node/register tests/unit/**/*.test.ts",
     "test:coverage": "nyc -r lcov -r html -r text -n src/**/*.ts -e .ts -i ts-node/register -i jsdom-global/register --report-dir tests/coverage mocha tests/unit/**/*.test.ts",
+    "test:functional": "yarn test:functional:pre && wdio tests/wdio.conf.js",
+    "test:functional:pre": "rm -rf tests/public/dependencies && mkdir -p tests/public/dependencies && cp -r dist/ tests/public/dependencies/shortcut-buttons-flatpickr && cp -r node_modules/flatpickr/dist/ tests/public/dependencies/flatpickr",
     "watch:ts": "webpack --config build/webpack.config.ts --mode development --watch",
     "watch:themes": "webpack --config build/webpack.themes.ts --mode development --watch"
   },
