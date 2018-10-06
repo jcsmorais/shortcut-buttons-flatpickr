@@ -1,0 +1,42 @@
+<!doctype html>
+<!doctype html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../dependencies/flatpickr/flatpickr.js"></script>
+    <script type="text/javascript" src="../dependencies/shortcut-buttons-flatpickr/shortcut-buttons-flatpickr.min.js"></script>
+    <link href="../dependencies/flatpickr/flatpickr.min.css" rel="stylesheet">
+    <link href="../dependencies/shortcut-buttons-flatpickr/themes/light.min.css" rel="stylesheet">
+    <style>
+        *:focus {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">Link 1</a>
+    <input type="text" id="calendar" />
+    <a href="#">Link 2</a>
+</body>
+<script>
+    flatpickr(
+        document.querySelector('#calendar'),
+        {
+            enableTime: true,
+            plugins: [
+                ShortcutButtonsPlugin({
+                    button: [
+                        { label: 'A' },
+                        { label: 'B' },
+                        { label: 'C' },
+                    ],
+                }),
+            ]
+        }
+    );
+</script>
+
+</html>
