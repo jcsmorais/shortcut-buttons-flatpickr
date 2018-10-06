@@ -1,8 +1,13 @@
 # project
 dist
 
+# tests
+.nyc_output
+tests/coverage
+
 # npm
 node_modules
+yarn-error.log
 
 # osx
 *.DS_Store

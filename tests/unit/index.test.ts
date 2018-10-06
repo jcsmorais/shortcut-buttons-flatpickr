@@ -1,14 +1,11 @@
-import { Instance as Flatpickr } from 'flatpickr/dist/types/instance.d';
-import { ShortcutButtonsFlatpickr, ShortcutButtonsPlugin } from '../index';
-
-// tslint:disable-next-line:no-var-requires
-const flatpickr = require('flatpickr/dist/flatpickr.js');
+import expect from 'expect.js';
+import flatpickr from 'flatpickr';
+import sinon from 'sinon';
+import { ShortcutButtonsFlatpickr, ShortcutButtonsPlugin } from '../../src/index';
 
 flatpickr.defaultConfig.animate = false;
 
-jest.useFakeTimers();
-
-const createInstance = (config: ShortcutButtonsFlatpickr.Config): Flatpickr => {
+const createInstance = (config: ShortcutButtonsFlatpickr.Config): flatpickr.Instance => {
     return flatpickr(
         document.createElement('input'),
         {
@@ -16,10 +13,14 @@ const createInstance = (config: ShortcutButtonsFlatpickr.Config): Flatpickr => {
                 ShortcutButtonsPlugin(config),
             ],
         }
-    ) as Flatpickr;
+    ) as flatpickr.Instance;
 };
 
 describe('ShortcutButtonsPlugin', () => {
+    before(() => {
+        sinon.useFakeTimers();
+    });
+
     it('should fallback to default theme if none supplied', () => {
         const fp = createInstance({
             button: {
@@ -29,7 +30,7 @@ describe('ShortcutButtonsPlugin', () => {
 
         const container = fp.calendarContainer.querySelector('.shortcut-buttons-flatpickr-wrapper.light');
 
-        expect(container).not.toBeNull();
+        expect(container).not.to.be(null);
 
         fp.destroy();
     });
@@ -44,7 +45,7 @@ describe('ShortcutButtonsPlugin', () => {
 
         const container = fp.calendarContainer.querySelector('.shortcut-buttons-flatpickr-wrapper.dark');
 
-        expect(container).not.toBeNull();
+        expect(container).not.to.be(null);
 
         fp.destroy();
     });
@@ -60,7 +61,7 @@ describe('ShortcutButtonsPlugin', () => {
             '.shortcut-buttons-flatpickr-wrapper .shortcut-buttons-flatpickr-label'
         );
 
-        expect(container).toBeNull();
+        expect(container).to.be(null);
 
         fp.destroy();
     });
@@ -77,8 +78,8 @@ describe('ShortcutButtonsPlugin', () => {
             '.shortcut-buttons-flatpickr-wrapper .shortcut-buttons-flatpickr-label'
         );
 
-        expect(container).not.toBeNull();
-        expect(container.textContent).toBe('or');
+        expect(container).not.to.be(null);
+        expect(container.textContent).to.be('or');
 
         fp.destroy();
     });
@@ -96,9 +97,9 @@ describe('ShortcutButtonsPlugin', () => {
         const buttons = container.querySelectorAll('.shortcut-buttons-flatpickr-button');
         const button = buttons[0] as HTMLButtonElement;
 
-        expect(buttons.length).toBe(1);
-        expect(button.textContent).toBe('test');
-        expect(button.dataset.index).toBe('0');
+        expect(buttons.length).to.be(1);
+        expect(button.textContent).to.be('test');
+        expect(button.dataset.index).to.be('0');
 
         fp.destroy();
     });
@@ -119,19 +120,19 @@ describe('ShortcutButtonsPlugin', () => {
         const button1 = buttons[0] as HTMLButtonElement;
         const button2 = buttons[1] as HTMLButtonElement;
 
-        expect(buttons.length).toBe(2);
+        expect(buttons.length).to.be(2);
 
-        expect(button1.textContent).toBe('test 1');
-        expect(button1.dataset.index).toBe('0');
+        expect(button1.textContent).to.be('test 1');
+        expect(button1.dataset.index).to.be('0');
 
-        expect(button2.textContent).toBe('test 2');
-        expect(button2.dataset.index).toBe('1');
+        expect(button2.textContent).to.be('test 2');
+        expect(button2.dataset.index).to.be('1');
 
         fp.destroy();
     });
 
     it('should properly handle a single config.onClick callback', () => {
-        const onClick = jest.fn();
+        const onClick = sinon.spy();
         const fp = createInstance({
             button: {
                 label: 'test',
@@ -147,15 +148,14 @@ describe('ShortcutButtonsPlugin', () => {
 
         button.click();
 
-        expect(onClick.mock.calls.length).toBe(1);
-        expect(onClick.mock.calls[0][0]).toBe(0);
-        expect(onClick.mock.calls[0][1]).toBe(fp);
+        expect(onClick.callCount).to.be(1);
+        expect(onClick.getCall(0).calledWith(0, fp)).to.be.ok();
 
         fp.destroy();
     });
 
     it('should properly handle a single config.onClick callback with multiple buttons', () => {
-        const onClick = jest.fn();
+        const onClick = sinon.spy();
         const fp = createInstance({
             button: [{
                 label: 'test 1',
@@ -175,20 +175,20 @@ describe('ShortcutButtonsPlugin', () => {
         button1.click();
         button2.click();
 
-        expect(onClick.mock.calls.length).toBe(2);
+        expect(onClick.callCount).to.be(2);
 
-        expect(onClick.mock.calls[0][0]).toBe(0);
-        expect(onClick.mock.calls[0][1]).toBe(fp);
+        expect(onClick.getCall(0).args[0]).to.be(0);
+        expect(onClick.getCall(0).args[1]).to.be(fp);
 
-        expect(onClick.mock.calls[1][0]).toBe(1);
-        expect(onClick.mock.calls[1][1]).toBe(fp);
+        expect(onClick.getCall(1).args[0]).to.be(1);
+        expect(onClick.getCall(1).args[1]).to.be(fp);
 
         fp.destroy();
     });
 
     it('should properly handle multiple config.onClick callbacks', () => {
-        const onClick1 = jest.fn();
-        const onClick2 = jest.fn();
+        const onClick1 = sinon.spy();
+        const onClick2 = sinon.spy();
         const fp = createInstance({
             button: {
                 label: 'test',
@@ -207,19 +207,19 @@ describe('ShortcutButtonsPlugin', () => {
 
         button.click();
 
-        expect(onClick1.mock.calls.length).toBe(1);
-        expect(onClick1.mock.calls[0][0]).toBe(0);
-        expect(onClick1.mock.calls[0][1]).toBe(fp);
+        expect(onClick1.callCount).to.be(1);
 
-        expect(onClick2.mock.calls.length).toBe(1);
-        expect(onClick2.mock.calls[0][0]).toBe(0);
-        expect(onClick2.mock.calls[0][1]).toBe(fp);
+        expect(onClick1.getCall(0).args[0]).to.be(0);
+        expect(onClick1.getCall(0).args[1]).to.be(fp);
+
+        expect(onClick2.getCall(0).args[0]).to.be(0);
+        expect(onClick2.getCall(0).args[1]).to.be(fp);
 
         fp.destroy();
     });
 
     it('should not execute given config.onClick callback if clicked element isn\'t a button', () => {
-        const onClick = jest.fn();
+        const onClick = sinon.spy();
         const fp = createInstance({
             button: {
                 label: 'test',
@@ -233,7 +233,7 @@ describe('ShortcutButtonsPlugin', () => {
 
         container.click();
 
-        expect(onClick.mock.calls.length).toBe(0);
+        expect(onClick.callCount).to.be(0);
 
         fp.destroy();
     });
