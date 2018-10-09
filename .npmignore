@@ -1,0 +1,19 @@
+# project
+.circleci
+tsconfig.declarations.json
+tsconfig.json
+tslint.json
+
+# editor
+.editorconfig
+
+# tests
+.nyc_output
+tests
+
+# npm
+node_modules
+yarn-error.log
+
+# osx
+*.DS_Store
