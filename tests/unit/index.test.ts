@@ -131,6 +131,31 @@ describe('ShortcutButtonsPlugin', () => {
         fp.destroy();
     });
 
+    it('should properly set config.button attributes', () => {
+        const fp = createInstance({
+            button: {
+                attributes: {
+                    'accesskey': '1',
+                    'aria-label': 'jump to test',
+                    'data-index': '1',
+                },
+                label: 'test',
+            },
+        });
+
+        const container = fp.calendarContainer.querySelector(
+            '.shortcut-buttons-flatpickr-wrapper .shortcut-buttons-flatpickr-buttons'
+        );
+        const buttons = container.querySelectorAll('.shortcut-buttons-flatpickr-button');
+        const button = buttons[0] as HTMLButtonElement;
+
+        expect(button.getAttribute('accesskey')).to.be('1');
+        expect(button.getAttribute('aria-label')).to.be('jump to test');
+        expect(button.dataset.index).to.be('0');
+
+        fp.destroy();
+    });
+
     it('should properly handle a single config.onClick callback', () => {
         const onClick = sinon.spy();
         const fp = createInstance({

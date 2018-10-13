@@ -31,13 +31,14 @@ Installing on non-module environments:
 ```
 
 # API
-| Params         | Type                     | Description                                                                                                                                                                      |
-|----------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `button`       | `Object`, `Object[]`     | Button(s).                                                                                                                                                                       |
-| `button.label` | `string`                 | Button's label.                                                                                                                                                                  |
-| `[label]`      | `string`                 | Label including a word/sentence stating that the user can use the calendar or one of the buttons.                                                                                |
-| `onClick`      | `Function`, `Function[]` | Callback(s) invoked when plugin's buttons are clicked. Each callback is fed with two parameters:<br/>`index` - the index of the clicked button.<br/>`fp` - flatpickr's instance. |
-| `[theme]`      | `string`                 | Flatpickr's theme, defaults to `light` if none supplied.                                                                                                                         |
+| Params                | Type                     | Description                                                                                                                                                                      |
+|-----------------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `button`              | `Object`, `Object[]`     | Button(s).                                                                                                                                                                       |
+| `[button.attributes]` | `Object`                 | Button's attributes.<br/>Supported attributes: `accesskey` and `aria-label`.                                                                                                     |
+| `button.label`        | `string`                 | Button's label.                                                                                                                                                                  |
+| `[label]`             | `string`                 | Label including a word/sentence stating that the user can use the calendar or one of the buttons.                                                                                |
+| `onClick`             | `Function`, `Function[]` | Callback(s) invoked when plugin's buttons are clicked. Each callback is fed with two parameters:<br/>`index` - the index of the clicked button.<br/>`fp` - flatpickr's instance. |
+| `[theme]`             | `string`                 | Flatpickr's theme, defaults to `light` if none supplied.                                                                                                                         |
 
 # Usage Examples
 * [Beginning Of Time](http://bit.ly/2jjcQK0)

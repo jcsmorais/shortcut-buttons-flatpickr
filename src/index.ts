@@ -8,7 +8,10 @@ import { Instance as Flatpickr } from 'flatpickr/dist/types/instance.d';
 export namespace ShortcutButtonsFlatpickr {
     export type OnClickSignature = (index: number, fp: Flatpickr) => void;
 
+    export type Attributes = { [name: string]: string };
+
     export type Button = {
+        attributes?: Attributes,
         label: string,
     };
 
@@ -23,6 +26,14 @@ export namespace ShortcutButtonsFlatpickr {
 const defaultConfig: Partial<ShortcutButtonsFlatpickr.Config> = {
     theme: 'light',
 };
+
+/**
+ * List of attributes that can be set through button's options.
+ */
+const supportedAttributes = new Set([
+    'accesskey',
+    'aria-label',
+]);
 
 /**
  * Adds shortcut buttons to flatpickr providing users an alternative way to interact with the datetime picker.
@@ -48,8 +59,9 @@ const defaultConfig: Partial<ShortcutButtonsFlatpickr.Config> = {
  *
  * Supported options are:
  *    `button`: button(s).
+ *    `button.attributes`: button's attributes.
  *    `button.label`: button's label.
- *    `label`: label including a word/sentence stating that the user can use the calendar or one of the buttons.
+ *    `label`: label including a sentence stating that the user can use the calendar controls or one of the buttons.
  *    `onClick`: callback(s) invoked when plugin's buttons are clicked.
  *    `theme`: flatpickr's theme.
  */
@@ -102,6 +114,15 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
             }
         }
 
+        /**
+         * Set given button's attributes.
+         */
+        function setButtonsAttributes(button: HTMLButtonElement, attributes?: ShortcutButtonsFlatpickr.Attributes) {
+            Object.keys(attributes).filter((attribute) => supportedAttributes.has(attribute)).forEach(
+                (key) => button.setAttribute(key, attributes[key])
+            );
+        }
+
         return {
             /**
              * Initialize plugin.
@@ -126,6 +147,9 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
                     button.classList.add('shortcut-buttons-flatpickr-button');
                     button.textContent = b.label;
                     button.dataset.index = String(index);
+                    if (typeof b.attributes !== 'undefined') {
+                        setButtonsAttributes(button, b.attributes);
+                    }
 
                     buttons.appendChild(button);
                 });
