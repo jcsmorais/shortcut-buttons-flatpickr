@@ -3,11 +3,21 @@ import * as webpack from 'webpack';
 
 // tslint:disable:no-var-requires
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const args = require('minimist')(process.argv.slice(2));
 // tslint:enable:no-var-requires
 
 const isProduction = args && args.mode === 'production';
 const filename = isProduction ? '[name].min.css' : '[name].css';
+const plugins = [
+    new ExtractTextPlugin({ filename }),
+];
+
+const optimization = isProduction ? {
+    minimizer: [
+        new OptimizeCssAssetsPlugin(),
+    ],
+} : {};
 
 const config: webpack.Configuration = {
     entry: {
@@ -26,12 +36,7 @@ const config: webpack.Configuration = {
                 test: /\.styl$/,
                 use: ExtractTextPlugin.extract({
                     use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                minimize: isProduction,
-                            },
-                        },
+                        'css-loader',
                         {
                             loader: 'postcss-loader',
                             options: {
@@ -46,15 +51,12 @@ const config: webpack.Configuration = {
             },
         ],
     },
+    optimization,
     output: {
         filename,
         path: path.resolve('dist/themes'),
     },
-    plugins: [
-        new ExtractTextPlugin({
-            filename,
-        }),
-    ],
+    plugins,
 };
 
 export default config;
