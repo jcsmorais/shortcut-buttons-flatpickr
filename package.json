@@ -1,7 +1,7 @@
 {
   "name": "shortcut-buttons-flatpickr",
   "description": "Shortcut buttons is a plugin for flatpickr that provides users an alternative way to interact with the datetime picker.",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "dist/shortcut-buttons-flatpickr.js",
   "scripts": {
     "build": "run-s build:pre build:dev build:prod",
