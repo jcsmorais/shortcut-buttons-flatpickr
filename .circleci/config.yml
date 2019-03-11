@@ -16,6 +16,9 @@ jobs:
           name: Install dependencies
           command: yarn
       - run:
+          name: Build
+          command: yarn build
+      - run:
           name: Run unit tests with coverage
           command: yarn test:coverage && cat ./tests/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
       - run:
@@ -30,24 +33,6 @@ jobs:
               echo "Waiting for functional tests server, $((TIMEOUT--)) remaining attempts..."
               sleep 1
               done
-      - run:
-          name: Install selenium
-          command: yarn selenium-standalone install
-      - run:
-          name: Start selenium
-          command: yarn start:selenium
-          background: true
-      - run:
-          name: Wait for selenium to be initialized
-          command: |
-              TIMEOUT=30
-              until curl 'http://localhost:4444/' > /dev/null 2>&1 || [ $TIMEOUT -eq 0 ]; do
-              echo "Waiting for selenium, $((TIMEOUT--)) remaining attempts..."
-              sleep 1
-              done
-      - run:
-          name: Build
-          command: yarn build
       - run:
           name: Run functional tests
           command: yarn test:functional

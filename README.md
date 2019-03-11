@@ -2,7 +2,7 @@
 [![CircleCI](https://circleci.com/gh/jcsmorais/shortcut-buttons-flatpickr/tree/master.svg?style=shield)](https://circleci.com/gh/jcsmorais/shortcut-buttons-flatpickr/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/jcsmorais/shortcut-buttons-flatpickr/badge.svg?branch=master)](https://coveralls.io/github/jcsmorais/shortcut-buttons-flatpickr?branch=master)
 [![npm version](https://badge.fury.io/js/shortcut-buttons-flatpickr.svg)](https://badge.fury.io/js/shortcut-buttons-flatpickr)
-[![flatpickr](https://img.shields.io/badge/flatpickr-4.5.1-brightgreen.svg)](https://flatpickr.js.org/)
+[![flatpickr](https://img.shields.io/badge/flatpickr-4.5.7-brightgreen.svg)](https://flatpickr.js.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/jcsmorais/shortcut-buttons-flatpickr/master/LICENSE)
 [![](https://data.jsdelivr.com/v1/package/npm/shortcut-buttons-flatpickr/badge)](https://www.jsdelivr.com/package/npm/shortcut-buttons-flatpickr)
 

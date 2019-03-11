@@ -2,12 +2,14 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["es6"],
+    "lib": ["dom", "es6"],
     "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "dist",
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": false,
-    "target": "es5"
+    "target": "es5",
+    "types": ["@wdio/sync", "mocha", "node"]
   }
 }
