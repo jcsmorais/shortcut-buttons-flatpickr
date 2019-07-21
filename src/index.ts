@@ -152,6 +152,8 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
                     }
 
                     buttons.appendChild(button);
+
+                    fp.pluginElements.push(button);
                 });
 
                 wrapper.appendChild(buttons);

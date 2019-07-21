@@ -63,7 +63,7 @@
     "expect.js": "^0.3.1",
     "express": "^4.17.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "flatpickr": "4.5.7",
+    "flatpickr": "^4.6.2",
     "forever": "^1.0.0",
     "jsdom": "^15.1.1",
     "jsdom-global": "^3.0.2",
