@@ -144,6 +144,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
 
                 (Array.isArray(cfg.button) ? cfg.button : [cfg.button]).forEach((b, index) => {
                     const button = document.createElement('button');
+                    button.type = 'button';
                     button.classList.add('shortcut-buttons-flatpickr-button');
                     button.textContent = b.label;
                     button.dataset.index = String(index);
