@@ -3,7 +3,6 @@ const path = require('path');
 exports.config = {
     capabilities: [{
         browserName: 'chrome',
-        maxInstances: 1,
     }],
     framework: 'mocha',
     logLevel: 'error',
@@ -18,7 +17,7 @@ exports.config = {
     ],
     runner: 'local',
     screenshotPath: path.join(__dirname, '/screenshots'),
-    services: ['selenium-standalone'],
+    services: ['chromedriver'],
     specs: [
         path.join(__dirname, '/functional/**/*.test.ts'),
     ],
