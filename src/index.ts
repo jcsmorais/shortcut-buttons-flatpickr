@@ -34,7 +34,7 @@ const supportedAttributes = new Set([
     'accesskey',
     'aria-label',
     'class',
-    'tabindex'
+    'tabindex',
 ]);
 
 /**
