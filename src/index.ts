@@ -33,6 +33,8 @@ const defaultConfig: Partial<ShortcutButtonsFlatpickr.Config> = {
 const supportedAttributes = new Set([
     'accesskey',
     'aria-label',
+    'class',
+    'tabindex'
 ]);
 
 /**
@@ -118,9 +120,14 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
          * Set given button's attributes.
          */
         function setButtonsAttributes(button: HTMLButtonElement, attributes?: ShortcutButtonsFlatpickr.Attributes) {
-            Object.keys(attributes).filter((attribute) => supportedAttributes.has(attribute)).forEach(
-                (key) => button.setAttribute(key, attributes[key])
-            );
+            Object.keys(attributes).filter((attribute) => supportedAttributes.has(attribute)).forEach((key) => {
+                if (key === 'class') {
+                    button.classList.add(attributes[key]);
+                    return;
+                }
+
+                button.setAttribute(key, attributes[key])
+            });
         }
 
         return {
