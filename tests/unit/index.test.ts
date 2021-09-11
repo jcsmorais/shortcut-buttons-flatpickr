@@ -137,6 +137,8 @@ describe('ShortcutButtonsPlugin', () => {
                 attributes: {
                     'accesskey': '1',
                     'aria-label': 'jump to test',
+                    'class': 'test-class',
+                    'tabindex': '-1',
                     'data-index': '1',
                 },
                 label: 'test',
@@ -151,6 +153,8 @@ describe('ShortcutButtonsPlugin', () => {
 
         expect(button.getAttribute('accesskey')).to.be('1');
         expect(button.getAttribute('aria-label')).to.be('jump to test');
+        expect(button.getAttribute('class')).to.contain('test-class');
+        expect(button.getAttribute('tabindex')).to.be('-1');
         expect(button.dataset.index).to.be('0');
 
         fp.destroy();
