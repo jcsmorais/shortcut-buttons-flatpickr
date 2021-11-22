@@ -74,7 +74,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
         /**
          * Element that wraps this plugin's dependent elements.
          */
-        let wrapper: HTMLElement;
+        let wrapper: HTMLElement | undefined;
 
         /**
          * Handles click events on plugin's button.
@@ -88,7 +88,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
                 return;
             }
 
-            const index = parseInt(target.dataset.index, 10);
+            const index = parseInt(target.dataset.index as string, 10);
 
             const callbacks: ShortcutButtonsFlatpickr.OnClickSignature[] = Array.isArray(cfg.onClick) ?
                 cfg.onClick :
@@ -119,7 +119,6 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
         /**
          * Set given button's attributes.
          */
-        function setButtonsAttributes(button: HTMLButtonElement, attributes?: ShortcutButtonsFlatpickr.Attributes) {
             Object.keys(attributes).filter((attribute) => supportedAttributes.has(attribute)).forEach((key) => {
                 if (key === 'class') {
                     button.classList.add(attributes[key]);
@@ -136,7 +135,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
              */
             onReady: () => {
                 wrapper = document.createElement('div');
-                wrapper.classList.add('shortcut-buttons-flatpickr-wrapper', cfg.theme);
+                wrapper.classList.add('shortcut-buttons-flatpickr-wrapper', cfg.theme as string);
 
                 if (typeof cfg.label !== 'undefined' && cfg.label.length) {
                     const label = document.createElement('div');
@@ -176,9 +175,11 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
              * Clean up before flatpickr is destroyed.
              */
             onDestroy: () => {
-                wrapper.removeEventListener('keydown', onKeyDown);
-                wrapper.removeEventListener('click', onClick);
-                wrapper = undefined;
+                if (typeof wrapper !== 'undefined') {
+                    wrapper.removeEventListener('keydown', onKeyDown);
+                    wrapper.removeEventListener('click', onClick);
+                    wrapper = undefined;
+                }
             },
         };
     };
