@@ -119,6 +119,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
         /**
          * Set given button's attributes.
          */
+        function setButtonsAttributes(button: HTMLButtonElement, attributes: ShortcutButtonsFlatpickr.Attributes) {
             Object.keys(attributes).filter((attribute) => supportedAttributes.has(attribute)).forEach((key) => {
                 if (key === 'class') {
                     button.classList.add(attributes[key]);
@@ -175,11 +176,10 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
              * Clean up before flatpickr is destroyed.
              */
             onDestroy: () => {
-                if (typeof wrapper !== 'undefined') {
-                    wrapper.removeEventListener('keydown', onKeyDown);
-                    wrapper.removeEventListener('click', onClick);
-                    wrapper = undefined;
-                }
+                if (typeof wrapper === 'undefined') return;
+                wrapper.removeEventListener('keydown', onKeyDown);
+                wrapper.removeEventListener('click', onClick);
+                wrapper = undefined;
             },
         };
     };
