@@ -122,7 +122,7 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
         function setButtonsAttributes(button: HTMLButtonElement, attributes?: ShortcutButtonsFlatpickr.Attributes) {
             Object.keys(attributes).filter((attribute) => supportedAttributes.has(attribute)).forEach((key) => {
                 if (key === 'class') {
-                    button.classList.add(attributes[key]);
+                    button.classList.add(...attributes[key].split(' '));
                     return;
                 }
 
