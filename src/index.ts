@@ -166,7 +166,9 @@ export function ShortcutButtonsPlugin(config: ShortcutButtonsFlatpickr.Config) {
 
                 wrapper.appendChild(buttons);
 
-                fp.calendarContainer.appendChild(wrapper);
+                if (typeof fp.calendarContainer !== 'undefined') {
+                    fp.calendarContainer.appendChild(wrapper);
+                }
 
                 wrapper.addEventListener('click', onClick);
                 wrapper.addEventListener('keydown', onKeyDown);
